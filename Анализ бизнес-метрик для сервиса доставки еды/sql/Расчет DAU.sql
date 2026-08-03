@@ -9,4 +9,3 @@ FROM analytics_events
 WHERE event = 'order' AND city_id = 6 AND log_date BETWEEN '2021-05-01' AND '2021-06-30'
 GROUP BY log_date 
 ORDER BY log_date
-LIMIT 10
