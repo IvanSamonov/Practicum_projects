@@ -1,0 +1,12 @@
+--Ежедневное количество активных зарегистрированных клиентов (user_id) за май и июнь 2021 года в городе Саранске. Критерий активности - размещение заказа.
+--Вывод:
+--1. log_date — дата события.
+--2. DAU — количество активных зарегистрированных клиентов.
+SELECT 
+    log_date,
+    COUNT(DISTINCT user_id) AS DAU
+FROM analytics_events
+WHERE event = 'order' AND city_id = 6 AND log_date BETWEEN '2021-05-01' AND '2021-06-30'
+GROUP BY log_date 
+ORDER BY log_date
+LIMIT 10
